@@ -7,11 +7,11 @@ import { Resource } from '../interfaces/resource.interface';
 import { ApiRelation } from '../enums/api-relation.enum';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-patient-list',
+  templateUrl: 'patient-list.page.html',
+  styleUrls: ['patient-list.page.scss']
 })
-export class Tab1Page implements OnInit {
+export class PatientListPage implements OnInit {
 
   apiResponse: ApiResponse<Patient>;
   patientList: Array<Resource<Patient>>;

@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { PatientListPage } from './patient-list.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 import { PatientNamePipe } from '../pipes/patient-name.pipe';
 
@@ -13,8 +13,8 @@ import { PatientNamePipe } from '../pipes/patient-name.pipe';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    RouterModule.forChild([{ path: '', component: Tab1Page }])
+    RouterModule.forChild([{ path: '', component: PatientListPage }])
   ],
-  declarations: [Tab1Page, PatientNamePipe]
+  declarations: [PatientListPage, PatientNamePipe]
 })
-export class Tab1PageModule {}
+export class PatientListPageModule {}

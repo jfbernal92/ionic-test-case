@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { HumanName } from '../interfaces/human-name.interface';
 
-const NO_NAME = 'No name';
+const NO_NAME = 'No name information available';
 
 @Pipe({name: 'patientName'})
 export class PatientNamePipe implements PipeTransform {
@@ -18,14 +18,15 @@ export class PatientNamePipe implements PipeTransform {
             if (n.prefix) {
                 n.prefix.forEach(p => nameLabel = nameLabel.concat(`${p} `))
             }
-            nameLabel = nameLabel.concat(n.family, ', ' )
+            if(n.family) {
+                nameLabel = nameLabel.concat(n.family, ', ' )
+            }
             if(n.given) {
                 n.given.forEach(g =>  nameLabel = nameLabel.concat(`${g} `))
             }
             nameLabel = nameLabel.concat('- ')
         }
       })
-      nameLabel.replace('undefined', '');
       return nameLabel.substring(0, nameLabel.length - 2);
   }
 }
