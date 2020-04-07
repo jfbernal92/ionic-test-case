@@ -4,16 +4,16 @@ import { TabsPage } from './tabs.page';
 
 const routes: Routes = [
   {
-    path: 'tabs',
+    path: 'ionic-test-case',
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'patient-list',
         children: [
           {
             path: '',
             loadChildren: () =>
-              import('../tab1/tab1.module').then(m => m.Tab1PageModule)
+              import('../patient-list/patient-list.module').then(m => m.PatientListPageModule)
           }
         ]
       },
@@ -29,14 +29,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/ionic-test-case/patient-list',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/ionic-test-case/patient-list',
     pathMatch: 'full'
   }
 ];

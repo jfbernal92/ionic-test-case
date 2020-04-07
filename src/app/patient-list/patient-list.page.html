@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Patient List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let item of patientList" detail>
+     <ion-label><pre>{{item.resource.name | patientName}}</pre></ion-label>
+  </ion-item>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="getNextPage($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
