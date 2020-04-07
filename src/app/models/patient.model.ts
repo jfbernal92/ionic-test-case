@@ -9,7 +9,7 @@ import { Communication } from '../interfaces/communication.interface';
 import { Address } from '../interfaces/address.interface';
 
 export class Patient {
-   private _id: number;
+   private _id: string;
    private _identifier: Array<Identifier>;
    private _active: boolean;
    private _name: Array<HumanName>;
@@ -28,8 +28,8 @@ export class Patient {
 
    constructor() { }
 
-   get id(): number { return this._id; }
-   set id(id: number) { this._id = id; }
+   get id(): string { return this._id; }
+   set id(id: string) { this._id = id; }
 
    get identifier(): Array<Identifier> { return this._identifier; }
    set identifier(identifier: Array<Identifier>) { this._identifier = identifier; }
