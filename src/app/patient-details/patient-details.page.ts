@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Patient } from '../models/patient.model';
 import { MedicationRequest } from '../models/medication-request.model';
 import { ApiResponse } from '../interfaces/api-response.interface';
+import { Observable } from 'rxjs';
 
 const ID_PARAM = 'id';
 
@@ -14,8 +15,8 @@ const ID_PARAM = 'id';
 })
 export class PatientDetailsPage implements OnInit {
 
-  patient: Patient;
-  medicationRequest: ApiResponse<MedicationRequest>;
+  patient$: Observable<Patient>;
+  medicationRequest$: Observable<ApiResponse<MedicationRequest>>;
 
   constructor(private api: ApiService, private activatedRoute: ActivatedRoute) { }
 
@@ -34,9 +35,7 @@ export class PatientDetailsPage implements OnInit {
    * @param patientId 
    */
   private getPatientDetails(patientId: string) {
-   this.api.getPatient(patientId).subscribe(response => {
-     this.patient = response;
-    });
+    this.patient$ = this.api.getPatient(patientId);
   }
 
   /**
@@ -44,9 +43,7 @@ export class PatientDetailsPage implements OnInit {
    * @param patientId 
    */
   private getMedications(patientId: string) {
-    this.api.getMedications(patientId).subscribe(response => {
-      this.medicationRequest = response;
-     });
+    this.medicationRequest$ = this.api.getMedications(patientId);
   }
 
 }

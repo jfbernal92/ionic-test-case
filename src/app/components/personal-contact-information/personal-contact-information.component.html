@@ -1,0 +1,30 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Personal Contact Information</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item-group *ngFor="let contact of telecom; let contactIndex = index">
+        <ion-item-divider>
+          <ion-label>Contact {{contactIndex + 1}}</ion-label>
+        </ion-item-divider>
+        <ion-item>
+          <ion-label>Value</ion-label>
+          <ion-note slot="end">{{ contact.value }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Use</ion-label>
+          <ion-note slot="end">{{ contact.use }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Preference</ion-label>
+          <ion-note slot="end">{{ contact.rank }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>System</ion-label>
+          <ion-note slot="end">{{ contact.system }}</ion-note>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

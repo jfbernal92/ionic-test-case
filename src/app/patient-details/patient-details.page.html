@@ -1,12 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/"></ion-back-button>
-    </ion-buttons>
-    <ion-title>{{ patient ? (patient.name | patientName) : ''}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ng-container *ngIf="patient$ | async as patient; else loading">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ patient.name ? (patient.name | patientName) : ''}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content [fullscreen]="true">
-  
-</ion-content>
+  <ion-content [fullscreen]="true">
+
+    <app-personal-information [patient]="patient"></app-personal-information>
+
+    <app-address [address]="patient.address"></app-address>
+
+    <app-personal-contact-information [telecom]="patient.telecom"></app-personal-contact-information>
+
+  </ion-content>
+</ng-container>
+
+<ng-template #loading>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Loading patient details...</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ng-template>
