@@ -1,6 +1,6 @@
 import { Coding } from './coding.interface';
 
 export interface CodeableConcept {
-    coding: Coding;
+    coding: Coding[];
     text: string;
 }

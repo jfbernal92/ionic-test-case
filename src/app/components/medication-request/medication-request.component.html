@@ -1,0 +1,13 @@
+<ion-card *ngIf="medicationRequest">
+  <ion-card-header>
+    <ion-card-title>Medication Request</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item >
+        <ion-label>Name</ion-label>
+        <ion-note slot="end">{{ medicationRequest | codeable }}</ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>

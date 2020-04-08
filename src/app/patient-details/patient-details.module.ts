@@ -9,6 +9,8 @@ import { AddressComponent } from '../components/address/address.component';
 import { PersonalInformationComponent } from '../components/personal-information/personal-information.component';
 import { PersonalContactInformationComponent } from '../components/personal-contact-information/personal-contact-information.component';
 import { ContactPartyInformationComponent } from '../components/contact-party-information/contact-party-information.component';
+import { MedicationRequestComponent } from '../components/medication-request/medication-request.component';
+import { CodeablePipeModule } from '../pipes/codeable.pipe';
 
 @NgModule({
   imports: [
@@ -16,6 +18,7 @@ import { ContactPartyInformationComponent } from '../components/contact-party-in
     CommonModule,
     FormsModule,
     PatientNamePipeModule,
+    CodeablePipeModule,
     RouterModule.forChild([{ path: '', component: PatientDetailsPage }])
   ],
   declarations: [
@@ -23,7 +26,8 @@ import { ContactPartyInformationComponent } from '../components/contact-party-in
     AddressComponent,
     PersonalInformationComponent,
     PersonalContactInformationComponent,
-    ContactPartyInformationComponent
+    ContactPartyInformationComponent,
+    MedicationRequestComponent
   ]
 })
 export class PatientDetailsPageModule {}

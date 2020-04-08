@@ -22,7 +22,10 @@ export class ContactPartyInformationComponent implements OnInit {
   getRelationShip(relationship: CodeableConcept[]): string {
     let relationshipLabel = '';
     if (relationship) {
-      relationship.forEach(r => relationshipLabel.concat(relationshipLabel, `${r.text} ${r.coding.display} ${r.coding.code}`));
+      relationship.forEach(r => {
+        relationshipLabel = relationshipLabel.concat(relationshipLabel, `${r.text} `);
+        r.coding.forEach(cod => relationshipLabel = relationshipLabel.concat(relationshipLabel, `${cod.display} ${cod.code}`));
+      });
     }
     return relationshipLabel;
   }

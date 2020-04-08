@@ -12,18 +12,25 @@
           <ion-label>Name</ion-label>
           <ion-note slot="end">{{ cont.name | patientName }}</ion-note>
         </ion-item>
-        <ion-item>
-          <ion-label>Relationship</ion-label>
-          <ion-note slot="end">{{ getRelationShip(cont.relationship) }}</ion-note>
-        </ion-item>
+
+        <ion-item-group>
+          <ion-item-divider>
+            <ion-label>Relationship</ion-label>
+          </ion-item-divider>
+          <ion-item *ngFor="let rel of cont.relationship">
+            <ion-label>Relationship</ion-label>
+            <ion-note slot="end">{{ rel | codeable }}</ion-note>
+          </ion-item>
+        </ion-item-group>
+
         <ion-item>
           <ion-label>Gender</ion-label>
           <ion-note slot="end">{{ cont.gender }}</ion-note>
         </ion-item>
         <app-address [address]="[cont.address]"></app-address>
         <app-personal-contact-information [telecom]="cont.telecom"></app-personal-contact-information>
+
       </ion-item-group>
     </ion-list>
   </ion-card-content>
 </ion-card>
-
