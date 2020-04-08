@@ -16,6 +16,8 @@
 
     <app-personal-contact-information [telecom]="patient.telecom"></app-personal-contact-information>
 
+    <app-contact-party-information [contact]="patient.contact"></app-contact-party-information>
+    <pre>{{ patient | json }}</pre>
   </ion-content>
 </ng-container>
 

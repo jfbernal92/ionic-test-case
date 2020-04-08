@@ -8,6 +8,7 @@ import { PatientNamePipeModule } from '../pipes/patient-name.pipe';
 import { AddressComponent } from '../components/address/address.component';
 import { PersonalInformationComponent } from '../components/personal-information/personal-information.component';
 import { PersonalContactInformationComponent } from '../components/personal-contact-information/personal-contact-information.component';
+import { ContactPartyInformationComponent } from '../components/contact-party-information/contact-party-information.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { PersonalContactInformationComponent } from '../components/personal-cont
     PatientDetailsPage,
     AddressComponent,
     PersonalInformationComponent,
-    PersonalContactInformationComponent
+    PersonalContactInformationComponent,
+    ContactPartyInformationComponent
   ]
 })
 export class PatientDetailsPageModule {}

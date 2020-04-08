@@ -6,7 +6,7 @@ import { Period } from './period.interface';
 import { Address } from './address.interface';
 
 export interface Contact {
-    relationsip: Array<CodeableConcept>;
+    relationship: Array<CodeableConcept>;
     name: HumanName;
     telecom: Array<ContactPoint>;
     address: Address;
