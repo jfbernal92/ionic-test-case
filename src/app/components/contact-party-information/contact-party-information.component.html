@@ -17,8 +17,8 @@
           <ion-item-divider>
             <ion-label>Relationship</ion-label>
           </ion-item-divider>
-          <ion-item *ngFor="let rel of cont.relationship">
-            <ion-label>Relationship</ion-label>
+          <ion-item *ngFor="let rel of cont.relationship; let i = index">
+            <ion-label>Relationship {{ i + 1 }}</ion-label>
             <ion-note slot="end">{{ rel | codeable }}</ion-note>
           </ion-item>
         </ion-item-group>

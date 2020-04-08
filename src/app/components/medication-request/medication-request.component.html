@@ -4,10 +4,47 @@
   </ion-card-header>
   <ion-card-content>
     <ion-list>
-      <ion-item >
+      <ion-item>
         <ion-label>Name</ion-label>
-        <ion-note slot="end">{{ medicationRequest | codeable }}</ion-note>
+        <ion-note slot="end">{{ medicationRequest.medicationCodeableConcept | codeable }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Status</ion-label>
+        <ion-note slot="end">{{ medicationRequest.status }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Intent</ion-label>
+        <ion-note slot="end">{{ medicationRequest.intent }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Priority</ion-label>
+        <ion-note slot="end">{{ medicationRequest.priority }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Subject</ion-label>
+        <ion-note slot="end">{{ medicationRequest.subject | reference }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Encounter</ion-label>
+        <ion-note slot="end">{{ medicationRequest.encounter | reference }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Requester</ion-label>
+        <ion-note slot="end">{{ medicationRequest.requester | reference }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Authored On</ion-label>
+        <ion-note slot="end">{{ medicationRequest.authoredOn }}</ion-note>
       </ion-item>
     </ion-list>
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Supporting Information</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let sup of medicationRequest.supportingInformation">
+        <ion-note slot="start">{{ sup | reference }}</ion-note>
+      </ion-item>
+    </ion-item-group>
+
   </ion-card-content>
 </ion-card>

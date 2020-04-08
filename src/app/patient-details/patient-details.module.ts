@@ -11,6 +11,7 @@ import { PersonalContactInformationComponent } from '../components/personal-cont
 import { ContactPartyInformationComponent } from '../components/contact-party-information/contact-party-information.component';
 import { MedicationRequestComponent } from '../components/medication-request/medication-request.component';
 import { CodeablePipeModule } from '../pipes/codeable.pipe';
+import { ReferencePipeModule } from '../pipes/reference.pipe';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { CodeablePipeModule } from '../pipes/codeable.pipe';
     FormsModule,
     PatientNamePipeModule,
     CodeablePipeModule,
+    ReferencePipeModule,
     RouterModule.forChild([{ path: '', component: PatientDetailsPage }])
   ],
   declarations: [

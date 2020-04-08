@@ -18,10 +18,10 @@
 
     <app-contact-party-information [contact]="patient.contact"></app-contact-party-information>
     
-    <ng-container *ngFor="let medication of (medicationRequest | async)?.entry">
+    <ng-container *ngFor="let medication of (medicationRequest$ | async)?.entry">
       <app-medication-request [medicationRequest]="medication.resource"></app-medication-request>
     </ng-container>
-    <pre>{{patient$ | async | json}}</pre>
+
   </ion-content>
 </ng-container>
 
