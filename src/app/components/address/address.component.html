@@ -1,0 +1,53 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Personal Address</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+
+      <ion-item-group *ngFor="let addr of address; let i = index">
+        <ion-item-divider>
+          <ion-label>Address {{i + 1}}</ion-label>
+        </ion-item-divider>
+        <ion-item *ngIf="addr.text">
+          <ion-label>{{ addr.text }}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Use</ion-label>
+          <ion-note slot="end">{{ addr.use }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Type</ion-label>
+          <ion-note slot="end">{{ addr.type }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>City</ion-label>
+          <ion-note slot="end">{{ addr.city }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>District</ion-label>
+          <ion-note slot="end">{{ addr.district }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>State</ion-label>
+          <ion-note slot="end">{{ addr.state }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Postal Code</ion-label>
+          <ion-note slot="end">{{ addr.postalCode }}</ion-note>
+        </ion-item>
+        <ion-item>
+          <ion-label>Country</ion-label>
+          <ion-note slot="end">{{ addr.country }}</ion-note>
+        </ion-item>
+        <ion-item *ngFor="let line of addr.line; let addrIndex = index;">
+          <ion-label>Line {{ addrIndex +1 }}</ion-label>
+          <ion-note slot="end">{{ line }}</ion-note>
+        </ion-item>
+      </ion-item-group>
+
+
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>

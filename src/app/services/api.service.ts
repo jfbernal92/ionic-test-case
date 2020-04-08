@@ -5,6 +5,7 @@ import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { MedicationRequest } from '../models/medication-request.model';
 
 @Injectable()
 export class ApiService {
@@ -22,15 +23,15 @@ export class ApiService {
    * Gets the information of a specific patient
    * @param patientId The patient ID
    */
-  getPatient(patientId: string): Observable<ApiResponse<Patient>> {
-    return this.http.get<ApiResponse<Patient>>(`${environment.apiHost}/${environment.patientPath}/${patientId}`);
+  getPatient(patientId: string): Observable<Patient> {
+    return this.http.get<Patient>(`${environment.apiHost}/${environment.patientPath}/${patientId}`);
   }
 
   /**
    * Gets a list of medications of a specific patient
    * @param patient The patient ID
    */
-  getMedications(patient: string): Observable<ApiResponse<any>> {
+  getMedications(patient: string): Observable<ApiResponse<MedicationRequest>> {
     const  urlParams = new  HttpParams({fromObject:  {patient}});
     return this.http.get<ApiResponse<any>>(`${environment.apiHost}/${environment.medicationRequestPath}`,  {params: urlParams});
   }
