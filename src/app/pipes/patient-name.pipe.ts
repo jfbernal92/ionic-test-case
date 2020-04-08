@@ -1,5 +1,7 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform, NgModule } from '@angular/core';
 import { HumanName } from '../interfaces/human-name.interface';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
 const NO_NAME = 'No name information available';
 
@@ -30,3 +32,14 @@ export class PatientNamePipe implements PipeTransform {
       return nameLabel.substring(0, nameLabel.length - 2);
   }
 }
+
+@NgModule({
+    imports: [
+      IonicModule,
+      CommonModule,
+    ],
+    declarations: [PatientNamePipe],
+    exports: [PatientNamePipe]
+  })
+  export class PatientNamePipeModule {}
+  
