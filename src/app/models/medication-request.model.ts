@@ -8,7 +8,7 @@ export class MedicationRequest {
     status: string;
     intent: string;
     priority: string;
-    medicationCodeableConcept: CodeableConcept
+    medicationCodeableConcept: CodeableConcept;
     subject: Reference;
     encounter: Reference;
     supportingInformation: Array<Reference>;

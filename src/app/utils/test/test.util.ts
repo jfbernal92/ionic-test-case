@@ -10,13 +10,34 @@ import { Gender } from 'src/app/enums/gender.enum';
 import { Contact } from 'src/app/interfaces/contact.interface';
 import { Reference } from 'src/app/interfaces/reference.interface';
 import { Identifier } from 'src/app/interfaces/identifier.interface';
+import { ApiResponse } from 'src/app/interfaces/api-response.interface';
+import { ApiRelation } from 'src/app/enums/api-relation.enum';
+import { Resource } from 'src/app/interfaces/resource.interface';
+import { MedicationRequest } from 'src/app/models/medication-request.model';
 /**
  * Util class to get mock data for testing purpouses
  */
 export class TestUtil {
 
+
+    static getMockApiResponse<T>(mockData: T): ApiResponse<T> {
+        return {
+            resourceType: 'resourceTypeTest',
+            id: 'idTest',
+            meta: { lastUpdated: new Date() },
+            type: 'typeTest',
+            link: [{ relation: ApiRelation.NEXT, url: 'urlNextTest' }],
+            entry: [{
+                fullUrl: 'fullUrlTest',
+                resource: mockData,
+                search: { mode: 'modeTest' }
+            }]
+        }
+    }
+
     static getMockPatient(): Patient {
         let patient = new Patient();
+        patient.id = 'idTest';
         patient.name = [TestUtil.getMockHumanName()];
         patient.active = true;
         patient.telecom = [TestUtil.getMockContactPoint()]
@@ -30,6 +51,21 @@ export class TestUtil {
         patient.contact = [TestUtil.getMockContact()];
         patient.communication = [TestUtil.getMockCommunication()];
         return patient;
+    }
+
+    static getMockMedication(): MedicationRequest {
+        return {
+            identifier: [TestUtil.getMockIdentifier()],
+            status: 'statusTest',
+            intent: 'intentTest',
+            priority: 'priorityTest',
+            medicationCodeableConcept: TestUtil.getMockCodeable(),
+            subject: TestUtil.getMockReference(),
+            encounter: TestUtil.getMockReference(),
+            supportingInformation: [TestUtil.getMockReference()],
+            authoredOn: new Date(),
+            requester: TestUtil.getMockReference()
+        }
     }
 
     static getMockCodeable(): CodeableConcept {
@@ -116,7 +152,7 @@ export class TestUtil {
         }
     }
 
-    static getMockIdentifier(): Identifier{
+    static getMockIdentifier(): Identifier {
         return {
             use: 'useTest',
             type: TestUtil.getMockCodeable(),

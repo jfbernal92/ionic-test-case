@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiHost: 'http://hapi.fhir.org/baseR4/',
+  apiHost: 'http://hapi.fhir.org/baseR4',
   patientPath: 'Patient',
   medicationRequestPath: 'MedicationRequest'
 };
