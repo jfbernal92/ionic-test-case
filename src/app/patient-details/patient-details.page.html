@@ -18,6 +18,10 @@
 
     <app-contact-party-information [contact]="patient.contact"></app-contact-party-information>
     
+    <ng-container *ngFor="let medication of (medicationRequest$ | async)?.entry">
+      <app-medication-request [medicationRequest]="medication.resource"></app-medication-request>
+    </ng-container>
+
   </ion-content>
 </ng-container>
 
@@ -31,3 +35,4 @@
     </ion-toolbar>
   </ion-header>
 </ng-template>
+

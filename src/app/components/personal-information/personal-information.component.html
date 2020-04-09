@@ -22,14 +22,14 @@
       </ion-item>
       <ion-item>
         <ion-label>Marital Status</ion-label>
-        <ion-note slot="end">{{ patient.maritalStatus?.text }}</ion-note>
+        <ion-note slot="end">{{ patient.maritalStatus | codeable }}</ion-note>
       </ion-item>
       <ion-item-group>
         <ion-item-divider>
           <ion-label>Language</ion-label>
         </ion-item-divider>
         <ion-item *ngFor="let com of patient.communication">
-          <ion-label>{{com.language.text}}</ion-label>
+          <ion-label>{{com.language | codeable}}</ion-label>
           <ion-note slot="end">{{ com.preferred ? 'Fav' : '' }}</ion-note>
         </ion-item>
       </ion-item-group>

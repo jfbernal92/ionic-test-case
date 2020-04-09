@@ -7,6 +7,7 @@ export class MedicationRequest {
     identifier: Array<Identifier>;
     status: string;
     intent: string;
+    priority: string;
     medicationCodeableConcept: CodeableConcept
     subject: Reference;
     encounter: Reference;
