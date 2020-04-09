@@ -3,7 +3,7 @@ import { HumanName } from '../interfaces/human-name.interface';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 
-const NO_NAME = 'No name information available';
+export const NO_NAME = 'No name information available';
 
 @Pipe({ name: 'patientName' })
 export class PatientNamePipe implements PipeTransform {
@@ -18,9 +18,9 @@ export class PatientNamePipe implements PipeTransform {
 
         let nameLabel = '';
         nameArray.forEach(n => {
-            nameLabel = nameLabel.concat(nameLabel, this.getName(n));
+            nameLabel = nameLabel.concat(this.getName(n), ' - ');
         })
-        return nameLabel;
+        return nameLabel.substring(0, nameLabel.length - 3);
     }
 
     /**
