@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Contact } from 'src/app/interfaces/contact.interface';
-import { CodeableConcept } from 'src/app/interfaces/codeable-concept.interface';
 
 @Component({
   selector: 'app-contact-party-information',
@@ -14,20 +13,5 @@ export class ContactPartyInformationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-
-  /**
-   * Gets a 'one line' label for relationship param
-   * @param relationship The list of relationships
-   */
-  getRelationShip(relationship: CodeableConcept[]): string {
-    let relationshipLabel = '';
-    if (relationship) {
-      relationship.forEach(r => {
-        relationshipLabel = relationshipLabel.concat(relationshipLabel, `${r.text} `);
-        r.coding.forEach(cod => relationshipLabel = relationshipLabel.concat(relationshipLabel, `${cod.display} ${cod.code}`));
-      });
-    }
-    return relationshipLabel;
-  }
 
 }

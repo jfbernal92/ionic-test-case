@@ -1,5 +1,4 @@
 import { Patient } from './../models/patient.model';
-import { Resource } from '../interfaces/resource.interface';
 import { ApiResponse } from './../interfaces/api-response.interface';
 import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
@@ -33,7 +32,7 @@ export class ApiService {
    */
   getMedications(patient: string): Observable<ApiResponse<MedicationRequest>> {
     const  urlParams = new  HttpParams({fromObject:  {patient}});
-    return this.http.get<ApiResponse<any>>(`${environment.apiHost}/${environment.medicationRequestPath}`,  {params: urlParams});
+    return this.http.get<ApiResponse<MedicationRequest>>(`${environment.apiHost}/${environment.medicationRequestPath}`,  {params: urlParams});
   }
 
   /**

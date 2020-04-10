@@ -30,7 +30,6 @@ export class PatientListPage implements OnInit {
    */
   getNextPage(event) {
     let nextPageLink = this.apiResponse.link.find(link => link.relation === ApiRelation.NEXT).url;
-    console.log(nextPageLink)
     if (nextPageLink) {
       this.api.getPage<Patient>(nextPageLink).subscribe(response => {
         this.apiResponse = response;
