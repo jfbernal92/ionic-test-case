@@ -12,7 +12,6 @@ import { of } from 'rxjs';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { link } from 'fs';
 
 describe('PatientListPage', () => {
   let component: PatientListPage;
@@ -23,7 +22,7 @@ describe('PatientListPage', () => {
   const patient = TestUtil.getMockPatient();
   const apiResponse = TestUtil.getMockApiResponse<Patient>(patient);
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     mockApiService = jasmine.createSpyObj('ApiService', ['getPatients', 'getPage']);
     mockApiService.getPatients.and.returnValue(of(apiResponse));
     mockApiService.getPage.and.returnValue(of(apiResponse));
@@ -43,14 +42,13 @@ describe('PatientListPage', () => {
     component = fixture.componentInstance;
     de = fixture.debugElement;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
 
   it('should display 1 patient', () => {
-    console.log(component.apiResponse)
     expect(de.queryAll(By.css('ion-content > ion-item')).length).toEqual(apiResponse.entry.length);
   })
 

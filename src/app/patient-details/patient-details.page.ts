@@ -6,7 +6,7 @@ import { MedicationRequest } from '../models/medication-request.model';
 import { ApiResponse } from '../interfaces/api-response.interface';
 import { Observable } from 'rxjs';
 
-const ID_PARAM = 'id';
+export const ID_PARAM = 'id';
 
 @Component({
   selector: 'app-patient-details',
