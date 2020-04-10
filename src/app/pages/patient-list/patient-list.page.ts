@@ -1,10 +1,10 @@
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Patient } from '../models/patient.model';
-import { ApiResponse } from '../interfaces/api-response.interface';
-import { Resource } from '../interfaces/resource.interface';
-import { ApiRelation } from '../enums/api-relation.enum';
+import { Patient } from '../../models/patient.model';
+import { ApiResponse } from '../../interfaces/api-response.interface';
+import { Resource } from '../../interfaces/resource.interface';
+import { ApiRelation } from '../../enums/api-relation.enum';
 
 @Component({
   selector: 'app-patient-list',

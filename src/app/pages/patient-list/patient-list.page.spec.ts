@@ -2,12 +2,12 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule, IonInfiniteScroll } from '@ionic/angular';
 
 import { PatientListPage } from './patient-list.page';
-import { PatientNamePipeModule, PatientNamePipe } from '../pipes/patient-name.pipe';
+import { PatientNamePipeModule, PatientNamePipe } from '../../pipes/patient-name.pipe';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TestUtil } from '../utils/test/test.util';
-import { Patient } from '../models/patient.model';
+import { TestUtil } from '../../utils/test/test.util';
+import { Patient } from '../../models/patient.model';
 import { of } from 'rxjs';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';

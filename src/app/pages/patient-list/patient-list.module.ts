@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PatientListPage } from './patient-list.page';
-import { PatientNamePipeModule } from '../pipes/patient-name.pipe';
+import { PatientNamePipeModule } from '../../pipes/patient-name.pipe';
 
 @NgModule({
   imports: [
@@ -12,7 +12,12 @@ import { PatientNamePipeModule } from '../pipes/patient-name.pipe';
     CommonModule,
     FormsModule,
     PatientNamePipeModule,
-    RouterModule.forChild([{ path: '', component: PatientListPage }])
+    RouterModule.forChild([
+      {
+        path: '',
+        component: PatientListPage
+      }
+    ])
   ],
   declarations: [PatientListPage]
 })
