@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../services/api.service';
+import { ApiService } from '../../services/api.service';
 import { ActivatedRoute } from '@angular/router';
-import { Patient } from '../models/patient.model';
-import { MedicationRequest } from '../models/medication-request.model';
-import { ApiResponse } from '../interfaces/api-response.interface';
+import { Patient } from '../../models/patient.model';
+import { MedicationRequest } from '../../models/medication-request.model';
+import { ApiResponse } from '../../interfaces/api-response.interface';
 import { Observable } from 'rxjs';
 
 export const ID_PARAM = 'id';
