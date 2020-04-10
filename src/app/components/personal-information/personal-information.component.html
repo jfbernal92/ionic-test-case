@@ -1,0 +1,38 @@
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Personal Information</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label>Active</ion-label>
+        <ion-note slot="end">{{ patient.active }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Birth Date</ion-label>
+        <ion-note slot="end">{{ patient.birthDate }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Deceased</ion-label>
+        <ion-note slot="end">{{ patient.deceasedDateTime }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Gender</ion-label>
+        <ion-note slot="end">{{ patient.gender }}</ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-label>Marital Status</ion-label>
+        <ion-note slot="end">{{ patient.maritalStatus | codeable }}</ion-note>
+      </ion-item>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label>Language</ion-label>
+        </ion-item-divider>
+        <ion-item *ngFor="let com of patient.communication">
+          <ion-label>{{com.language | codeable}}</ion-label>
+          <ion-note slot="end">{{ com.preferred ? 'Fav' : '' }}</ion-note>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
